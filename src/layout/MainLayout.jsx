@@ -1,5 +1,6 @@
 import React from "react";
 import Sidebar from "../component/Sidebar";
+import Content from "../component/Content";
 
 const MainLayout = ({ children }) => {
   return (
@@ -9,7 +10,9 @@ const MainLayout = ({ children }) => {
         <Sidebar />
       </div>
       {/* Content component */}
-      <div className="lg:w-3/4 grow w-full lg:h-screen h-auto overflow-y-auto"></div>
+      <div className="lg:w-3/4 grow w-full lg:h-screen h-auto overflow-y-auto">
+        <Content />
+      </div>
     </main>
   );
 };
