@@ -46,7 +46,7 @@ const Dropdown = ({}) => {
     <div className="relative w-auto inline-flex flex-col" ref={menuRef}>
       <button
         className={
-          "w-auto h-10 py-1 px-2 rounded-lg text-sm font-semibold text-gray-900 group border border-gray-500 bg-white group "
+          "w-auto h-10 py-1 px-2 rounded-lg text-sm font-semibold text-gray-900 group border border-gray-500 bg-white group flex flex-row gap-2 items-center justify-between "
         }
         onClick={toggleMenu}
       >
