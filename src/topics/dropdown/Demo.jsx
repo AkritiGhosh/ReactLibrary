@@ -12,7 +12,7 @@ const dropdownItems = [
 ];
 
 const Dropdown = ({}) => {
-  const [buttonLabel, setButtonLabel] = useState("");
+  const [buttonLabel, setButtonLabel] = useState("Dropdown open here");
   const [menuOpen, setMenuOpen] = useState(false);
   const [dropType, setDropType] = useState(false);
   const menuRef = useRef(null);
@@ -46,12 +46,25 @@ const Dropdown = ({}) => {
     <div className="relative w-auto inline-flex flex-col" ref={menuRef}>
       <button
         className={
-          "w-auto h-10 py-1 px-2 rounded-lg text-sm font-semibold text-gray-900 group border border-gray-500 bg-white group " +
-          (toggleMenu && "active")
+          "w-auto h-10 py-1 px-2 rounded-lg text-sm font-semibold text-gray-900 group border border-gray-500 bg-white group "
         }
         onClick={toggleMenu}
       >
-        {buttonLabel}
+        <span>{buttonLabel}</span>
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          fill="none"
+          viewBox="0 0 24 24"
+          strokeWidth={2}
+          stroke="currentColor"
+          className="w-5 h-5"
+        >
+          <path
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            d="m19.5 8.25-7.5 7.5-7.5-7.5"
+          />
+        </svg>
       </button>
       {menuOpen && dropdownItems?.length > 0 && (
         <ul
