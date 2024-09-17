@@ -3,6 +3,8 @@ import Logo from "../logo/Logo";
 import data from "../../data/data";
 import { Link, useParams } from "react-router-dom";
 import { tabs } from "../../lib/constant";
+import SidebarActiveItem from "./SidebarActiveItem";
+import SidebarItem from "./SidebarItem";
 
 const Sidebar = () => {
   const currentPage = useParams().page;
@@ -12,21 +14,12 @@ const Sidebar = () => {
         <Logo />
         <h1 className="text-cyan-200 text-xl font-medium ">React Library</h1>
       </div>
-      <div className="flex flex-col divide-y divide-gray-800">
+      <div className="flex flex-col divide-y divide-gray-800 px-1">
         {data?.map((item) =>
           currentPage == item?.id ? (
-            <div className="w-full flex flex-col bg-cyan-100 px-4 py-2 font-medium text-cyan-950 ">
-              <h1 className="w-full">{item?.name}</h1>
-              <div className="w-full flex justify-between"></div>
-            </div>
+            <SidebarActiveItem data={item} />
           ) : (
-            <Link to={"/main/" + item?.id + "/" + tabs.ARTICLE}>
-              <div
-                className={`w-full text-white font-base px-4 py-2 hover:bg-cyan-300/40`}
-              >
-                {item?.name}
-              </div>
-            </Link>
+            <SidebarItem data={item} />
           )
         )}
       </div>
