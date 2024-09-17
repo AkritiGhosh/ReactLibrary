@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import Sidebar from "../component/Sidebar";
+import Sidebar from "../component/sidebar/Sidebar";
 import { Outlet, useNavigate } from "react-router-dom";
 import data from "../data/data";
 import { tabs } from "../lib/constant";

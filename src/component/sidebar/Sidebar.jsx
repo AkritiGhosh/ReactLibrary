@@ -1,9 +1,8 @@
 import React from "react";
-import Logo from "./logo/Logo";
-import data from "../data/data";
+import Logo from "../logo/Logo";
+import data from "../../data/data";
 import { Link, useParams } from "react-router-dom";
-import { tabs } from "../lib/constant";
-
+import { tabs } from "../../lib/constant";
 
 const Sidebar = () => {
   const currentPage = useParams().page;
@@ -18,9 +17,7 @@ const Sidebar = () => {
           currentPage == item?.id ? (
             <div className="w-full flex flex-col bg-cyan-100 px-4 py-2 font-medium text-cyan-950 ">
               <h1 className="w-full">{item?.name}</h1>
-              <div className="w-full flex justify-between">
-                
-              </div>
+              <div className="w-full flex justify-between"></div>
             </div>
           ) : (
             <Link to={"/main/" + item?.id + "/" + tabs.ARTICLE}>
