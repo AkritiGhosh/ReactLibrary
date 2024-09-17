@@ -24,10 +24,14 @@ const Main = () => {
     document.title = metadata?.name + " - React Library";
   }, [metadata]);
 
+  useEffect(() => {
+    setActiveTab(loc.pathname?.split("/").at(-1));
+  }, [loc.pathname])
+
   const switchTabs = (e) => {
     let tabName = e.target.id;
     if (activeTab != tabName) {
-      setActiveTab(tabName);
+      // setActiveTab(tabName);
       nav(tabName);
     }
   };
