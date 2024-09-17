@@ -7,8 +7,7 @@ import { tabs } from "../lib/constant";
 const MainLayout = ({ selected = false }) => {
   const nav = useNavigate();
   useEffect(() => {
-    if (!selected)
-      nav(data[0].id + "/" + tabs.ARTICLE.toLowerCase(), { replace: true });
+    if (!selected) nav(data[0].id + "/" + tabs.ARTICLE, { replace: true });
   }, [selected]);
 
   return (

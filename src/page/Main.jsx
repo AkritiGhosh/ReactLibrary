@@ -18,9 +18,8 @@ const Main = () => {
   const [activeTab, setActiveTab] = useState(
     loc.pathname?.split("/")?.length >= 4
       ? loc.pathname?.split("/").at(-1)
-      : tabs.ARTICLE.toLowerCase()
+      : tabs.ARTICLE
   );
-  console.log(loc.pathname?.split("/")?.at(-1), activeTab == tabs.ARTICLE);
   useEffect(() => {
     document.title = metadata?.name + " - React Library";
   }, [metadata]);
@@ -29,7 +28,7 @@ const Main = () => {
     let tabName = e.target.id;
     if (activeTab != tabName) {
       setActiveTab(tabName);
-      nav(tabName.toLowerCase());
+      nav(tabName);
     }
   };
 
@@ -63,9 +62,9 @@ const Main = () => {
       >
         <span
           onClick={switchTabs}
-          className={`px-3 py-1 border-b-2 border-solid hover:border-blue-500  ${
-            tabs.ARTICLE?.toLowerCase() == activeTab
-              ? "text-blue-800 border-blue-800"
+          className={`px-3 py-1 border-b-2 border-solid hover:border-cyan-500 cursor-pointer ${
+            tabs.ARTICLE == activeTab
+              ? "text-cyan-800 border-cyan-600"
               : "border-transparent"
           }`}
           id={tabs.ARTICLE}
@@ -74,9 +73,9 @@ const Main = () => {
         </span>
         <span
           onClick={switchTabs}
-          className={`px-3 py-1 border-b-2 border-solid hover:border-blue-500  ${
-            tabs.CODE?.toLowerCase() == activeTab
-              ? "text-blue-800 border-blue-800"
+          className={`px-3 py-1 border-b-2 border-solid hover:border-cyan-500 cursor-pointer ${
+            tabs.CODE == activeTab
+              ? "text-cyan-800 border-cyan-600"
               : "border-transparent"
           }`}
           id={tabs.CODE}
@@ -85,9 +84,9 @@ const Main = () => {
         </span>
         <span
           onClick={switchTabs}
-          className={`px-3 py-1 border-b-2 border-solid hover:border-blue-500  ${
-            tabs.DEMO?.toLowerCase() == activeTab
-              ? "text-blue-800 border-blue-800"
+          className={`px-3 py-1 border-b-2 border-solid hover:border-cyan-500 cursor-pointer ${
+            tabs.DEMO == activeTab
+              ? "text-cyan-800 border-cyan-600"
               : "border-transparent"
           }`}
           id={tabs.DEMO}
