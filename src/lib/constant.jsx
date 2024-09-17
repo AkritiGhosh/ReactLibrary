@@ -1,5 +1,5 @@
 export const tabs = {
-  ARTICLE: "Explanation",
-  CODE: "Code",
-  DEMO: "Demo",
+  ARTICLE: "explanation",
+  CODE: "code",
+  DEMO: "demo",
 };
