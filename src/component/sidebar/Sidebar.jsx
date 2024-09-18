@@ -12,7 +12,7 @@ const Sidebar = () => {
     <div className="w-full flex flex-col py-4 gap-6">
       <div className="flex gap-4 px-4 items-center">
         <Logo />
-        <h1 className="text-cyan-200 text-xl font-medium ">React Library</h1>
+        <h1 className="text-cyan-300 text-xl font-medium ">React Library</h1>
       </div>
       <div className="flex flex-col divide-y divide-gray-800 px-1">
         {data?.map((item) =>
