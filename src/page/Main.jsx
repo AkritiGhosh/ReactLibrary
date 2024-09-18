@@ -26,7 +26,7 @@ const Main = () => {
 
   useEffect(() => {
     setActiveTab(loc.pathname?.split("/").at(-1));
-  }, [loc.pathname])
+  }, [loc.pathname]);
 
   const switchTabs = (e) => {
     let tabName = e.target.id;
@@ -50,55 +50,57 @@ const Main = () => {
   }, [activeTab]);
 
   return (
-    <div className="lg:w-3/4 grow w-full lg:h-screen h-auto overflow-y-auto relative">
+    <div className="lg:w-3/4 grow w-full lg:h-screen h-auto overflow-y-auto relative scroll-smooth">
       <div
         id="topBanner"
-        className="w-full sticky top-0 right-0 flex flex-col gap-4 p-4"
+        className="w-full sticky top-0 right-0 p-4 bg-white flex flex-col gap-4"
       >
-        <h1 className="text-4xl font-bold text-black">{metadata?.heading}</h1>
-        <h2 className="text-base italic font-semibold text-gray-600">
-          {metadata?.subheading}
-        </h2>
+        <div className="w-full relative top-0 flex flex-col gap-4">
+          <h1 className="text-4xl font-bold text-black">{metadata?.heading}</h1>
+          <h2 className="text-base italic font-semibold text-gray-600">
+            {metadata?.subheading}
+          </h2>
+        </div>
+        <div
+          id="tabs"
+          className="py-1 font-semibold text-gray-700 text-xl border-b-2 border-solid relative"
+        >
+          <span
+            onClick={switchTabs}
+            className={`px-3 py-1 border-b-2 border-solid hover:border-cyan-500 cursor-pointer ${
+              tabs.ARTICLE == activeTab
+                ? "text-cyan-800 border-cyan-600"
+                : "border-transparent"
+            }`}
+            id={tabs.ARTICLE}
+          >
+            Explanation
+          </span>
+          <span
+            onClick={switchTabs}
+            className={`px-3 py-1 border-b-2 border-solid hover:border-cyan-500 cursor-pointer ${
+              tabs.CODE == activeTab
+                ? "text-cyan-800 border-cyan-600"
+                : "border-transparent"
+            }`}
+            id={tabs.CODE}
+          >
+            Code
+          </span>
+          <span
+            onClick={switchTabs}
+            className={`px-3 py-1 border-b-2 border-solid hover:border-cyan-500 cursor-pointer ${
+              tabs.DEMO == activeTab
+                ? "text-cyan-800 border-cyan-600"
+                : "border-transparent"
+            }`}
+            id={tabs.DEMO}
+          >
+            Demo
+          </span>
+        </div>
       </div>
-      <div
-        id="tabs"
-        className="px-4 py-1 font-semibold text-gray-700 text-xl border-b-2 border-solid relative"
-      >
-        <span
-          onClick={switchTabs}
-          className={`px-3 py-1 border-b-2 border-solid hover:border-cyan-500 cursor-pointer ${
-            tabs.ARTICLE == activeTab
-              ? "text-cyan-800 border-cyan-600"
-              : "border-transparent"
-          }`}
-          id={tabs.ARTICLE}
-        >
-          Explanation
-        </span>
-        <span
-          onClick={switchTabs}
-          className={`px-3 py-1 border-b-2 border-solid hover:border-cyan-500 cursor-pointer ${
-            tabs.CODE == activeTab
-              ? "text-cyan-800 border-cyan-600"
-              : "border-transparent"
-          }`}
-          id={tabs.CODE}
-        >
-          Code
-        </span>
-        <span
-          onClick={switchTabs}
-          className={`px-3 py-1 border-b-2 border-solid hover:border-cyan-500 cursor-pointer ${
-            tabs.DEMO == activeTab
-              ? "text-cyan-800 border-cyan-600"
-              : "border-transparent"
-          }`}
-          id={tabs.DEMO}
-        >
-          Demo
-        </span>
-      </div>
-      <Outlet context={tabContent} />
+      <Outlet context={{ code: tabContent }} />
     </div>
   );
 };
