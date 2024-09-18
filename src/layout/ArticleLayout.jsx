@@ -1,9 +1,13 @@
-import React from 'react'
+import React from "react";
+import { useOutletContext } from "react-router-dom";
 
 const ArticleLayout = () => {
+  const { code } = useOutletContext();
   return (
-    <div>ArticleLayout</div>
-  )
-}
+    <div className="container h-auto mx-auto p-4">
+      {code}
+        </div>
+  );
+};
 
-export default ArticleLayout
+export default ArticleLayout;
