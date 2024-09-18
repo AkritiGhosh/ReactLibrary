@@ -11,7 +11,7 @@ const data = [
     id: "dropdown",
     demoTab: <Dropdown />,
     codeTab: <></>,
-    articleTab: <></>,
+    articleTab: <div>Content goes here</div>,
   },
   {
     name: "Floating Label for Input",
