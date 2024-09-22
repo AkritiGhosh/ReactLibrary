@@ -1,4 +1,4 @@
-import { BrowserRouter, Route, Routes } from "react-router-dom";
+import { HashRouter, Route, Routes } from "react-router-dom";
 import Home from "./page/Home";
 import MainLayout from "./layout/MainLayout";
 import { tabs } from "./lib/constant";
@@ -9,7 +9,7 @@ import DemoLayout from "./layout/DemoLayout";
 
 function App() {
   return (
-    <BrowserRouter>
+    <HashRouter>
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/main" element={<MainLayout selected={false} />}>
@@ -20,7 +20,7 @@ function App() {
           </Route>
         </Route>
       </Routes>
-    </BrowserRouter>
+    </HashRouter>
   );
 }
 
