@@ -9,18 +9,21 @@ import DemoLayout from "./layout/DemoLayout";
 
 function App() {
   return (
-    <HashRouter>
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/main" element={<MainLayout selected={false} />}>
-          <Route path=":page" element={<Main />}>
-            <Route path={tabs.ARTICLE} element={<ArticleLayout />} />
-            <Route path={tabs.CODE} element={<CodeLayout />} />
-            <Route path={tabs.DEMO} element={<DemoLayout />} />
+    <>
+      <div className="app page"></div>
+      <HashRouter>
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/main" element={<MainLayout selected={false} />}>
+            <Route path=":page" element={<Main />}>
+              <Route path={tabs.ARTICLE} element={<ArticleLayout />} />
+              <Route path={tabs.CODE} element={<CodeLayout />} />
+              <Route path={tabs.DEMO} element={<DemoLayout />} />
+            </Route>
           </Route>
-        </Route>
-      </Routes>
-    </HashRouter>
+        </Routes>
+      </HashRouter>
+    </>
   );
 }
 
