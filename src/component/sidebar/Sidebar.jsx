@@ -2,7 +2,6 @@ import React from "react";
 import Logo from "../logo/Logo";
 import data from "../../data/data";
 import { Link, useParams } from "react-router-dom";
-import { tabs } from "../../lib/constant";
 import SidebarActiveItem from "./SidebarActiveItem";
 import SidebarItem from "./SidebarItem";
 
