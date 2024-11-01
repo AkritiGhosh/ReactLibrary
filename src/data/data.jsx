@@ -18,7 +18,7 @@ const data = [
     heading: "Floating Label for Input",
     subheading:
       "The label for an input is animated, such that the label initially appears as a placeholder, but when clicked or focused on, floats to the top outline of the input element.",
-    id: "floating_label",
+    id: "floating_label_input",
     demoTab: <FLIDemo />,
     codeTab: <></>,
     articleTab: <></>,

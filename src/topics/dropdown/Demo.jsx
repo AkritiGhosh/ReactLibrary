@@ -6,9 +6,6 @@ const dropdownItems = [
   "Item3",
   "Item4",
   "Item5",
-  "Item6",
-  "Item7",
-  "Item8",
 ];
 
 const Dropdown = ({}) => {

@@ -66,15 +66,13 @@ const tabList = [
 ];
 const SidebarActiveItem = ({ data }) => {
   const loc = useLocation();
-  const activeTab =
-    loc.pathname?.split("/")?.length >= 4
-      ? loc.pathname?.split("/").at(-1)
-      : tabs.ARTICLE;
 
   return (
     <div className="w-full flex flex-col gap-3 bg-sky-400/60 px-3 py-2 font-medium text-white rounded-lg">
-      <h1 className="w-full">{data?.name}</h1>
-      <div className="w-full flex justify-evenly">
+      <Link to={"/main/" + data?.id}>
+        <h1 className="w-full">{data?.name}</h1>
+      </Link>
+      {/* <div className="w-full flex justify-evenly">
         {tabList?.map((tab) => (
           <Link
             to={"/main/" + data?.id + "/" + tab?.id}
@@ -86,7 +84,7 @@ const SidebarActiveItem = ({ data }) => {
             {tab?.icon}
           </Link>
         ))}
-      </div>
+      </div> */}
     </div>
   );
 };

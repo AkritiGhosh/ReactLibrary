@@ -16,9 +16,7 @@ function App() {
           <Route path="/" element={<Home />} />
           <Route path="/main" element={<MainLayout selected={false} />}>
             <Route path=":page" element={<Main />}>
-              <Route path={tabs.ARTICLE} element={<ArticleLayout />} />
-              <Route path={tabs.CODE} element={<CodeLayout />} />
-              <Route path={tabs.DEMO} element={<DemoLayout />} />
+              <Route exact element={<DemoLayout />} />
             </Route>
           </Route>
         </Routes>

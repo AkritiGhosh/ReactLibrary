@@ -2,12 +2,11 @@ import React, { useEffect } from "react";
 import Sidebar from "../component/sidebar/Sidebar";
 import { Outlet, useNavigate } from "react-router-dom";
 import data from "../data/data";
-import { tabs } from "../lib/constant";
 
 const MainLayout = ({ selected = false }) => {
   const nav = useNavigate();
   useEffect(() => {
-    if (!selected) nav(data[0].id + "/" + tabs.ARTICLE, { replace: true });
+    if (!selected) nav(data[0].id, { replace: true });
   }, [selected]);
 
   return (
