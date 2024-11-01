@@ -1,11 +1,9 @@
-import React, { useEffect, useMemo, useState } from "react";
-import {
-  useParams,
-} from "react-router-dom";
+import React, { useEffect } from "react";
+import { useParams } from "react-router-dom";
 import data from "../data/data";
-import DemoLayout from "../layout/DemoLayout";
+import DemoLayout from "./DemoLayout";
 
-const Main = () => {
+const MainContent = () => {
   const currentPage = useParams().page;
   const metadata = data.filter((iter) => iter.id == currentPage)[0];
 
@@ -31,4 +29,4 @@ const Main = () => {
   );
 };
 
-export default Main;
+export default MainContent;

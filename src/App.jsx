@@ -1,16 +1,16 @@
 import { HashRouter, Route, Routes } from "react-router-dom";
-import MainLayout from "./layout/MainLayout";
-import Main from "./page/Main";
+import MainLayout from "./layout/PageLayout";
+import MainContent from "./layout/ContentLayout";
 
 function App() {
   return (
-      <HashRouter>
-        <Routes>
-          <Route path="/" element={<MainLayout selected={false} />}>
-            <Route path=":page" element={<Main />} />
-          </Route>
-        </Routes>
-      </HashRouter>
+    <HashRouter>
+      <Routes>
+        <Route path="/" element={<MainLayout />}>
+          <Route path=":page" element={<MainContent />} />
+        </Route>
+      </Routes>
+    </HashRouter>
   );
 }
 
