@@ -1,11 +1,12 @@
 import React from "react";
 import { Link } from "react-router-dom";
-
+import './sidebar.css'
 const SidebarItem = ({ data }) => {
   return (
     <Link to={"/main/" + data?.id}>
       <div
-        className={`w-full text-white font-base px-3 py-2 hover:bg-cyan-300/40  rounded-lg`}
+        id={data?.id}
+        className={`sidebarItem w-full text-white font-base px-3 py-2`}
       >
         {data?.name}
       </div>
