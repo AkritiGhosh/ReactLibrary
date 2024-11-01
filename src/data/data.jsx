@@ -9,9 +9,8 @@ const data = [
     subheading:
       "Create a dropdown button. The element is a simple button, which when clicked opens up a list of options to select. The list closes if (1) an option from list is selected; (2) area outside the dropdown is clicked. ",
     id: "dropdown",
+    collection: false,
     demoTab: <Dropdown />,
-    codeTab: <></>,
-    articleTab: <div>Content goes here</div>,
   },
   {
     name: "Floating Label for Input",
@@ -19,9 +18,8 @@ const data = [
     subheading:
       "The label for an input is animated, such that the label initially appears as a placeholder, but when clicked or focused on, floats to the top outline of the input element.",
     id: "floating_label_input",
+    collection: false,
     demoTab: <FLIDemo />,
-    codeTab: <></>,
-    articleTab: <></>,
   },
 ];
 

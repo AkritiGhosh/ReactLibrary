@@ -1,12 +1,7 @@
 import React, { useEffect, useMemo, useState } from "react";
 import {
-  Navigate,
-  Outlet,
-  useLocation,
-  useNavigate,
   useParams,
 } from "react-router-dom";
-import { tabs } from "../lib/constant";
 import data from "../data/data";
 import DemoLayout from "../layout/DemoLayout";
 
