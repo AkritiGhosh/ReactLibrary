@@ -19,7 +19,7 @@ const MainLayout = () => {
         <div className="lg:w-1/5 w-full lg:h-screen h-auto lg:overflow-y-auto bg-black">
           <Sidebar />
         </div>
-        <div className="lg:w-4/5 grow w-full lg:h-screen h-auto overflow-y-auto relative scroll-smooth">
+        <div className="lg:w-4/5 grow w-full lg:h-screen h-auto overflow-y-auto relative scroll-smooth py-5 px-8">
           <HeaderBlock data={metadata} />
           {/* Content component */}
           <Outlet />
