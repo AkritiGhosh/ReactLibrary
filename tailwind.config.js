@@ -7,7 +7,17 @@ export default {
     "./src/**.{js,ts,jsx,tsx}",
   ],
   theme: {
-    extend: {},
+    extend: {
+      keyframes: {
+        rotate: {
+          "0%": { transform: "rotate(0)" },
+          "100%": { transform: "rotate(360deg)" },
+        },
+      },
+      animation: {
+        rotate: 'rotate 10s linear infinite'
+      }
+    },
   },
   plugins: [],
 };
