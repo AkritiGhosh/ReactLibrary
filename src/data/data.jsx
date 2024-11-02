@@ -43,10 +43,10 @@ const data = [
     demoTab: <GradientBorder2 />,
   },
   {
-    name: "Colorful gradient border - 2",
+    name: "Colorful gradient border - 3",
     heading: "Colorful gradient border",
     subheading:
-      "Applying gradient shaded borders - Method 2 : Using a parent div surrounding the button",
+      "Applying gradient shaded borders - Method 3 : Using a parent div surrounding the button",
     id: "gradient_border_3",
     collection: false,
     demoTab: <GradientBorder3 />,
