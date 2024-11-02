@@ -2,6 +2,8 @@ import React from "react";
 import Dropdown from "../topics/dropdown/Demo";
 import FLIDemo from "../topics/floating_label_input/Demo";
 import GradientBorder1 from "../topics/buttons/colorful_border/GradientBorder1";
+import GradientBorder2 from "../topics/buttons/colorful_border/GradientBorder2";
+import GradientBorder3 from "../topics/buttons/colorful_border/GradientBorder3";
 
 const data = [
   {
@@ -30,6 +32,24 @@ const data = [
     id: "gradient_border_1",
     collection: false,
     demoTab: <GradientBorder1 />,
+  },
+  {
+    name: "Colorful gradient border - 2",
+    heading: "Colorful gradient border",
+    subheading:
+      "Applying gradient shaded borders - Method 2 : Using a parent div surrounding the button",
+    id: "gradient_border_2",
+    collection: false,
+    demoTab: <GradientBorder2 />,
+  },
+  {
+    name: "Colorful gradient border - 2",
+    heading: "Colorful gradient border",
+    subheading:
+      "Applying gradient shaded borders - Method 2 : Using a parent div surrounding the button",
+    id: "gradient_border_3",
+    collection: false,
+    demoTab: <GradientBorder3 />,
   },
   // {
   //   name: "Borders and gradients",
