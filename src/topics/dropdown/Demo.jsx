@@ -1,12 +1,6 @@
 import React, { useEffect, useState, useRef } from "react";
 
-const dropdownItems = [
-  "Item1",
-  "Item2",
-  "Item3",
-  "Item4",
-  "Item5",
-];
+const dropdownItems = ["Item1", "Item2", "Item3", "Item4", "Item5"];
 
 const Dropdown = ({}) => {
   const [buttonLabel, setButtonLabel] = useState("Dropdown open here");
@@ -43,7 +37,7 @@ const Dropdown = ({}) => {
     <div className="relative w-auto inline-flex flex-col" ref={menuRef}>
       <button
         className={
-          "w-auto h-10 py-1 px-2 rounded-lg text-sm font-semibold text-gray-900 group border border-gray-500 bg-white group flex flex-row gap-2 items-center justify-between "
+          "w-[40vw]  h-12 px-2 rounded-lg text-base leading-12 font-semibold text-gray-900 dark:text-gray-100 group border border-gray-500 bg-white dark:bg-black group flex flex-row gap-2 items-center justify-between group"
         }
         onClick={toggleMenu}
       >
@@ -54,7 +48,9 @@ const Dropdown = ({}) => {
           viewBox="0 0 24 24"
           strokeWidth={2}
           stroke="currentColor"
-          className="w-5 h-5"
+          className={`w-5 h-5 ${
+            menuOpen ? "opacity-100" : "opacity-0 group-hover:opacity-100"
+          } transition-opacity duration-500`}
         >
           <path
             strokeLinecap="round"
@@ -65,19 +61,29 @@ const Dropdown = ({}) => {
       </button>
       {menuOpen && dropdownItems?.length > 0 && (
         <ul
-          className={`right-0 w-48 z-[333] max-h-[400px] overflow-auto scrollbar-hide p-1 list-style-none bg-white shadow-menuOptionShadow rounded-lg absolute origin-top-right ring-1 ring-black ring-opacity-5 focus:outline-none ${
+          className={`right-0 w-[40vw] z-[333] max-h-[400px] overflow-auto scrollbar-hide p-1 list-style-none bg-white dark:bg-gray-800 shadow-menuOptionShadow rounded-lg absolute origin-top-right ring-1 ring-black dark:ring-gray-200   ring-opacity-40 dark:ring-opacity-50 focus:outline-none ${
             dropType ? "bottom-12 top-auto" : "top-12"
           } `}
         >
+          <li
+            className={`w-full p-2 flex gap-2 items-center hover:bg-blue-100 hover:bg-opacity-20 rounded-lg cursor-pointer text-sm text-gray-900 dark:text-gray-100 to-gray-800 hover:font-medium mb-0.5 group 
+             font-normal bg-transparent `}
+            onClick={() => {
+              setMenuOpen(false);
+              setButtonLabel("Dropdown open here");
+            }}
+          >
+            Dropdown open here
+          </li>
           {dropdownItems?.map((item, key) => (
             <li
               key={key}
-              className={`w-full p-2 flex gap-2 items-center hover:bg-blue-100 hover:bg-opacity-40 rounded-lg cursor-pointer text-sm to-gray-800 hover:font-medium mb-0.5 group ${
+              className={`w-full p-2 flex gap-2 items-center hover:bg-blue-100 hover:bg-opacity-20 rounded-lg cursor-pointer text-sm text-gray-900 dark:text-gray-100 to-gray-800 hover:font-medium mb-0.5 group ${
                 item == buttonLabel
                   ? "font-medium bg-blue-100 selected "
                   : "font-normal bg-transparent"
               }`}
-              onClick={(e) => {
+              onClick={() => {
                 setMenuOpen(false);
                 setButtonLabel(item);
               }}
