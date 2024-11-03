@@ -1,0 +1,7 @@
+#textImgBg{
+    background-image: url('../../../public/galaxy-background.jpg');
+    -webkit-text-fill-color: transparent;
+    -webkit-background-clip: text;
+    background-size: 200%;
+    background-position: center;
+}

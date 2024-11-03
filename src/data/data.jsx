@@ -4,6 +4,7 @@ import FLIDemo from "../topics/floating_label_input/Demo";
 import GradientBorder1 from "../topics/buttons/colorful_border/GradientBorder1";
 import GradientBorder2 from "../topics/buttons/colorful_border/GradientBorder2";
 import GradientBorder3 from "../topics/buttons/colorful_border/GradientBorder3";
+import TextWithImageBg from "../topics/textBgImage/Demo";
 
 const data = [
   {
@@ -50,6 +51,15 @@ const data = [
     id: "gradient_border_3",
     collection: false,
     demoTab: <GradientBorder3 />,
+  },
+  {
+    name: "Text fill as image",
+    heading: "Text having image for color",
+    subheading:
+      "Applying gradient shaded borders - Method 3 : Using a parent div surrounding the button",
+    id: "text_image_color",
+    collection: false,
+    demoTab: <TextWithImageBg />,
   },
   // {
   //   name: "Borders and gradients",
