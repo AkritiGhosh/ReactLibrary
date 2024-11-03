@@ -5,6 +5,7 @@ import GradientBorder1 from "../topics/buttons/colorful_border/GradientBorder1";
 import GradientBorder2 from "../topics/buttons/colorful_border/GradientBorder2";
 import GradientBorder3 from "../topics/buttons/colorful_border/GradientBorder3";
 import TextWithImageBg from "../topics/textBgImage/Demo";
+import TextWithImageBgAnimated from "../topics/textBgImage/WithBgImg";
 
 const data = [
   {
@@ -59,7 +60,7 @@ const data = [
       "Applying gradient shaded borders - Method 3 : Using a parent div surrounding the button",
     id: "text_image_color",
     collection: false,
-    demoTab: <TextWithImageBg />,
+    demoTab: <TextWithImageBgAnimated />,
   },
   // {
   //   name: "Borders and gradients",
