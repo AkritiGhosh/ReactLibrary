@@ -60,6 +60,16 @@ const data = [
       "Applying gradient shaded borders - Method 3 : Using a parent div surrounding the button",
     id: "text_image_color",
     collection: false,
+    demoTab: <TextWithImageBg />,
+  },
+
+  {
+    name: "Text fill as image",
+    heading: "Text having image for color",
+    subheading:
+      "Applying gradient shaded borders - Method 3 : Using a parent div surrounding the button",
+    id: "text_image_color_bg",
+    collection: false,
     demoTab: <TextWithImageBgAnimated />,
   },
   // {
