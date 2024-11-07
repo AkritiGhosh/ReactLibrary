@@ -6,6 +6,7 @@ import GradientBorder2 from "../topics/buttons/colorful_border/GradientBorder2";
 import GradientBorder3 from "../topics/buttons/colorful_border/GradientBorder3";
 import TextWithImageBg from "../topics/textBgImage/Demo";
 import TextWithImageBgAnimated from "../topics/textBgImage/WithBgImg";
+import ImageToggleSwitch from "../topics/imgToggle/Demo";
 
 const data = [
   {
@@ -38,8 +39,8 @@ const data = [
   {
     name: "Colorful gradient border - 2",
     heading: "Colorful gradient border",
-    subheading:
-      "Applying gradient shaded borders - Method 2 : Using a parent div surrounding the button",
+    // subheading:
+    //   "Applying gradient shaded borders - Method 2 : Using a parent div surrounding the button",
     id: "gradient_border_2",
     collection: false,
     demoTab: <GradientBorder2 />,
@@ -47,8 +48,8 @@ const data = [
   {
     name: "Colorful gradient border - 3",
     heading: "Colorful gradient border",
-    subheading:
-      "Applying gradient shaded borders - Method 3 : Using a parent div surrounding the button",
+    // subheading:
+    //   "Applying gradient shaded borders - Method 3 : Using a parent div surrounding the button",
     id: "gradient_border_3",
     collection: false,
     demoTab: <GradientBorder3 />,
@@ -56,8 +57,8 @@ const data = [
   {
     name: "Text fill as image",
     heading: "Text having image for color",
-    subheading:
-      "Applying gradient shaded borders - Method 3 : Using a parent div surrounding the button",
+    // subheading:
+    //   "Applying gradient shaded borders - Method 3 : Using a parent div surrounding the button",
     id: "text_image_color",
     collection: false,
     demoTab: <TextWithImageBg />,
@@ -66,11 +67,20 @@ const data = [
   {
     name: "Text fill as image",
     heading: "Text having image for color",
-    subheading:
-      "Applying gradient shaded borders - Method 3 : Using a parent div surrounding the button",
+    // subheading:
+    //   "Applying gradient shaded borders - Method 3 : Using a parent div surrounding the button",
     id: "text_image_color_bg",
     collection: false,
     demoTab: <TextWithImageBgAnimated />,
+  },
+  {
+    name: "Toggle with Images",
+    heading: "Text having image for color",
+    // subheading:
+    //   "Applying gradient shaded borders - Method 3 : Using a parent div surrounding the button",
+    id: "toggle_bg",
+    collection: false,
+    demoTab: <ImageToggleSwitch />,
   },
   // {
   //   name: "Borders and gradients",
