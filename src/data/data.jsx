@@ -7,6 +7,7 @@ import GradientBorder3 from "../topics/buttons/colorful_border/GradientBorder3";
 import TextWithImageBg from "../topics/textBgImage/Demo";
 import TextWithImageBgAnimated from "../topics/textBgImage/WithBgImg";
 import ImageToggleSwitch from "../topics/imgToggle/Demo";
+import AnimatedTabs from "../topics/tabs/AnimatedTabs";
 
 const data = [
   {
@@ -81,6 +82,16 @@ const data = [
     id: "toggle_bg",
     collection: false,
     demoTab: <ImageToggleSwitch />,
+  },
+  
+  {
+    name: "Toggle with Images",
+    heading: "Text having image for color",
+    // subheading:
+    //   "Applying gradient shaded borders - Method 3 : Using a parent div surrounding the button",
+    id: "tabs",
+    collection: false,
+    demoTab: <AnimatedTabs />,
   },
   // {
   //   name: "Borders and gradients",
