@@ -1,13 +1,12 @@
-import React from "react";
-import Dropdown from "../topics/dropdown/Demo";
-import FLIDemo from "../topics/floating_label_input/Demo";
 import GradientBorder1 from "../topics/buttons/colorful_border/GradientBorder1";
 import GradientBorder2 from "../topics/buttons/colorful_border/GradientBorder2";
 import GradientBorder3 from "../topics/buttons/colorful_border/GradientBorder3";
+import Dropdown from "../topics/dropdown/BasicDropdown";
+import FLIDemo from "../topics/form_elements/FloatingLabelInputField";
+import ImageToggleSwitch from "../topics/form_elements/imgToggle/Demo";
+import AnimatedTabs from "../topics/tabs/AnimatedTabs";
 import TextWithImageBg from "../topics/textBgImage/Demo";
 import TextWithImageBgAnimated from "../topics/textBgImage/WithBgImg";
-import ImageToggleSwitch from "../topics/imgToggle/Demo";
-import AnimatedTabs from "../topics/tabs/AnimatedTabs";
 
 const data = [
   {
