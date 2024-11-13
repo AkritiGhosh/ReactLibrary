@@ -6,6 +6,7 @@ import FLIDemo from "../topics/form_elements/FloatingLabelInputField";
 import ImageToggleSwitch from "../topics/form_elements/imgToggle/Demo";
 import AnimatedTabs from "../topics/tabs/AnimatedTabs";
 import TextWithImageBg from "../topics/textBgImage/Demo";
+import BouncingCharacters from "../topics/textBgImage/BouncingText";
 import TextWithImageBgAnimated from "../topics/textBgImage/WithBgImg";
 
 const data = [
@@ -82,7 +83,7 @@ const data = [
     collection: false,
     demoTab: <ImageToggleSwitch />,
   },
-  
+
   {
     name: "Toggle with Images",
     heading: "Text having image for color",
@@ -91,6 +92,16 @@ const data = [
     id: "tabs",
     collection: false,
     demoTab: <AnimatedTabs />,
+  },
+
+  {
+    name: "Bouncing Text",
+    heading: "Bouncing letters",
+    // subheading:
+    //   "Applying gradient shaded borders - Method 3 : Using a parent div surrounding the button",
+    id: "bouncingLetters",
+    collection: false,
+    demoTab: <BouncingCharacters />,
   },
   // {
   //   name: "Borders and gradients",

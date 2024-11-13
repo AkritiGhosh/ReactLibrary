@@ -13,10 +13,15 @@ export default {
           "0%": { transform: "rotate(0)" },
           "100%": { transform: "rotate(360deg)" },
         },
+        bounceChar: {
+          "0%": { transform: "translateY(0)" },
+          "100%": { transform: "translateY(-70px)" },
+        },
       },
       animation: {
-        rotate: 'rotate 10s linear infinite'
-      }
+        rotate: "rotate 10s linear infinite",
+        bounceChar: "bounceChar 1s ease infinite alternate",
+      },
     },
   },
   plugins: [],
