@@ -9,14 +9,21 @@ const MainLayout = () => {
   const nav = useNavigate();
   const page = useParams()?.page ?? false;
   const metadata = page ? data.filter((iter) => iter.id == page)[0] : data[0];
-  const pageWidth = screen.width;
+  const pageWidth = window.innerWidth;
   const [mobileSidebar, setMobileSidebar] = useState(pageWidth < 1024);
 
   useEffect(() => {
-    const handleResize = () => setMobileSidebar(screen.width < 1024);
+    const handleResize = () => {
+      setMobileSidebar(window.innerWidth < 1024);
+    };
     window.addEventListener("resize", handleResize);
-    return () => window.removeEventListener("resize", handleResize);
-  }, []);
+    document.addEventListener("resize", handleResize);
+
+    return () => {
+      window.removeEventListener("resize", handleResize);
+      document.removeEventListener("resize", handleResize);
+    };
+  }, [window.innerWidth]);
 
   useEffect(() => {
     if (!page) nav(data[0].id, { replace: true });
