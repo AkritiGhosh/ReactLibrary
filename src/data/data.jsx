@@ -8,6 +8,7 @@ import AnimatedTabs from "../topics/tabs/AnimatedTabs";
 import TextWithImageBg from "../topics/textBgImage/Demo";
 import BouncingCharacters from "../topics/textBgImage/BouncingText";
 import TextWithImageBgAnimated from "../topics/textBgImage/WithBgImg";
+import PulsingText from "../topics/textBgImage/PulsingText";
 
 const data = [
   {
@@ -102,6 +103,16 @@ const data = [
     id: "bouncingLetters",
     collection: false,
     demoTab: <BouncingCharacters />,
+  },
+
+  {
+    name: "Pulsing Text",
+    heading: "Pulsing letters",
+    // subheading:
+    //   "Applying gradient shaded borders - Method 3 : Using a parent div surrounding the button",
+    id: "pulsingLetters",
+    collection: false,
+    demoTab: <PulsingText />,
   },
   // {
   //   name: "Borders and gradients",
