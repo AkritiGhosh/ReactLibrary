@@ -1,24 +1,57 @@
-@import url('https://fonts.googleapis.com/css2?family=Elsie+Swash+Caps:wght@400;900&display=swap');
-
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-::-webkit-scrollbar {
+@keyframes slideIn {
+  from {
+    top: -100vh;
+    background-color: theme(colors.app.900);
+  }
+  to {
+    top: 0;
+    background: black;
+  }
+}
+
+@keyframes fade-out {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
+
+.slide-in {
+  animation: slideIn 1s forwards;
+}
+.fade-out {
+  animation: fade-out 0.5s forwards;
+}
+*{
+    scroll-behavior: smooth;
+}
+.scrollbar-none::-webkit-scrollbar{
+    width: 0;
+    height: 0;
+    display: none;
+}
+
+*::-webkit-scrollbar {
   width: 4px;
   height: 4px;
 }
 
-::-webkit-scrollbar-track {
+*::-webkit-scrollbar-track {
   border-radius: 100vh;
   background: transparent;
 }
 
-::-webkit-scrollbar-thumb {
+*::-webkit-scrollbar-thumb {
   background: #d6e9fa;
   border-radius: 100vh;
 }
 
-::-webkit-scrollbar-thumb:hover {
+*::-webkit-scrollbar-thumb:hover {
   background: #a0bec0;
 }

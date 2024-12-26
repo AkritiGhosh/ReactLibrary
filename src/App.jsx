@@ -1,13 +1,15 @@
 import { HashRouter, Route, Routes } from "react-router-dom";
-import MainLayout from "./layout/PageLayout";
-import MainContent from "./layout/ContentLayout";
+import Home from "./pages/Home";
+import SlideShowLayout from "./pages/SlideShowLayout";
 
 function App() {
   return (
     <HashRouter>
       <Routes>
-        <Route path="/" element={<MainLayout />}>
-          <Route path=":page" element={<MainContent />} />
+        <Route path="/" Component={Home} />
+        <Route path="/component">
+          <Route index Component={SlideShowLayout} />
+          <Route path=":layoutId" Component={SlideShowLayout} />
         </Route>
       </Routes>
     </HashRouter>
