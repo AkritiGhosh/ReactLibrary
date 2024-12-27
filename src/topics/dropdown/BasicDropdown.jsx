@@ -14,7 +14,8 @@ const dropdownItems = [
 const Dropdown = ({}) => {
   const [buttonLabel, setButtonLabel] = useState("Dropdown open here");
   const [menuOpen, setMenuOpen] = useState(false);
-  const [dropType, setDropType] = useState(false);
+  //
+  const [dropUp, setDropUp] = useState(false);
   const menuRef = useRef(null);
 
   const toggleMenu = () => setMenuOpen((prev) => !prev);
@@ -29,9 +30,9 @@ const Dropdown = ({}) => {
 
       if (menuRef.current && menuRef.current.contains(e.target)) {
         // Clicked inside of the menu, check if the dropdown should be flipped
-        setDropType(
+        setDropUp(
           window?.innerHeight - menuRef?.current?.getBoundingClientRect()?.y <=
-            Math.min(400, dropdownItems?.length * 40 + 100)
+            Math.min(400, dropdownItems?.length * 36 + 100)
         );
       }
     };
@@ -50,8 +51,11 @@ const Dropdown = ({}) => {
       <button
         className={`w-[40vw] min-w-64  h-12 px-2 rounded-lg text-base leading-12 font-semibold text-focus-900 dark:text-focus-100 group border-2  bg-transparent group flex flex-row gap-2 items-center justify-between group ${
           menuOpen
-            ? "border-focus-600 dark:border-focus-300 rounded-b-none"
-            : "border-focus-950 dark:border-focus-600 rounded-b-lg"
+            ? `border-focus-600 dark:border-focus-300 ${
+                dropUp ? "rounded-t-none" : "rounded-b-none"
+              } `
+            : `border-focus-950 dark:border-focus-600 rounded-b-lg
+        `
         }`}
         onClick={toggleMenu}
       >
@@ -75,8 +79,8 @@ const Dropdown = ({}) => {
       </button>
       {menuOpen && dropdownItems?.length > 0 && (
         <ul
-          className={`right-0 w-full z-[333] max-h-[280px] overflow-auto scrollbar-none p-1 list-style-none bg-transparent shadow-menuOptionShadow rounded-b-lg absolute origin-top-right border border-focus-600 dark:border-focus-300   border-opacity-40 dark:border-opacity-50 focus:outline-none ${
-            dropType ? "bottom-12 top-auto" : "top-12"
+          className={`right-0 w-full z-[333] max-h-[280px] overflow-auto scrollbar-none p-1 list-style-none bg-transparent shadow-menuOptionShadow absolute origin-top-right border border-focus-600 dark:border-focus-300   border-opacity-40 dark:border-opacity-50 focus:outline-none ${
+            dropUp ? "bottom-12 top-auto rounded-t-lg" : "top-12 rounded-b-lg"
           } `}
         >
           {dropdownItems?.map((item, key) => (
