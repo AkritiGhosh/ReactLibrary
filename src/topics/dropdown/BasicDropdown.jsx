@@ -45,11 +45,11 @@ const Dropdown = ({}) => {
 
   return (
     <div
-      className="relative w-auto inline-flex flex-col *:transition-colors *:duration-500 *:ease-in-out"
+      className="relative w-1/5 min-w-64 inline-flex flex-col *:transition-colors *:duration-500 *:ease-in-out"
       ref={menuRef}
     >
       <button
-        className={`w-2/5 min-w-64  h-12 px-2 rounded-lg text-base leading-12 font-semibold text-focus-900 dark:text-focus-100 group border-2 bg-white dark:bg-black group flex flex-row gap-2 items-center justify-between group ${
+        className={`w-full h-12 px-2 rounded-lg text-base leading-12 font-semibold text-focus-900 dark:text-focus-100 group border-2 bg-white dark:bg-black group flex flex-row gap-2 items-center justify-between group ${
           menuOpen
             ? `border-focus-600 dark:border-focus-300 ${
                 dropUp ? "rounded-t-none" : "rounded-b-none"
