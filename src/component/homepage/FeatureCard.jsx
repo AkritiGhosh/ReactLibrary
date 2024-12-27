@@ -7,7 +7,7 @@ const FeatureCard = ({feature}) => {
       <h3 className="text-white font-semibold text-xl">{feature?.heading}</h3>
       {feature?.imgSrc && (
         <img
-          src={"/src/assets/demoCuts/" + feature.imgSrc}
+          src={"/ReactLibrary/src/assets/demoCuts/" + feature.imgSrc}
           alt={feature.heading + " working demo"}
           className="max-w-full w-auto h-auto rounded object-contain object-center"
         />

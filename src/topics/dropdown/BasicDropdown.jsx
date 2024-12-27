@@ -49,7 +49,7 @@ const Dropdown = ({}) => {
       ref={menuRef}
     >
       <button
-        className={`w-[40vw] min-w-64  h-12 px-2 rounded-lg text-base leading-12 font-semibold text-focus-900 dark:text-focus-100 group border-2  bg-transparent group flex flex-row gap-2 items-center justify-between group ${
+        className={`w-2/5 min-w-64  h-12 px-2 rounded-lg text-base leading-12 font-semibold text-focus-900 dark:text-focus-100 group border-2 bg-white dark:bg-black group flex flex-row gap-2 items-center justify-between group ${
           menuOpen
             ? `border-focus-600 dark:border-focus-300 ${
                 dropUp ? "rounded-t-none" : "rounded-b-none"
@@ -79,7 +79,7 @@ const Dropdown = ({}) => {
       </button>
       {menuOpen && dropdownItems?.length > 0 && (
         <ul
-          className={`right-0 w-full z-[333] max-h-[280px] overflow-auto scrollbar-none p-1 list-style-none bg-transparent shadow-menuOptionShadow absolute origin-top-right border border-focus-600 dark:border-focus-300   border-opacity-40 dark:border-opacity-50 focus:outline-none ${
+          className={`right-0 w-full z-[333] max-h-[250px] overflow-auto p-1 list-style-none bg-white dark:bg-black shadow-menuOptionShadow absolute origin-top-right border border-focus-600 dark:border-focus-300   border-opacity-40 dark:border-opacity-50 focus:outline-none ${
             dropUp ? "bottom-12 top-auto rounded-t-lg" : "top-12 rounded-b-lg"
           } `}
         >
