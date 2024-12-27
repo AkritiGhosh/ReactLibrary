@@ -9,10 +9,12 @@ const SlideShowLayout = () => {
   const nav = useNavigate();
 
   useEffect(() => {
-    if (!layoutId) nav(data[0]?.id);
+    if (!layoutId) nav("/component/"+data[0]?.id);
+    if (data.filter((item) => item?.id == layoutId)?.length < 1)
+      nav("/component/"+data[0]?.id);
   }, [data]);
 
-  const pageData = data.filter((item) => item?.id == layoutId)[0] ?? data[0];
+  const pageData = data.filter((item) => item?.id == layoutId)[0];
 
   return (
     <div className="w-full h-screen relative flex flex-col bg-white dark:bg-black transition-colors duration-500 ease-in-out *:transition-colors *:duration-500 *:ease-in-out">
