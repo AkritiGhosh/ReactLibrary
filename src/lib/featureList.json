@@ -1,84 +1,13 @@
 [
   {
-    "heading": "Form elements",
+    "heading": "Custom Dropdowns",
     "content": [
       {
-        "heading": "Floating Label for Input",
-        "path": "floating_label_textfield",
-        "imgSrc": "floating_label.gif",
+        "heading": "Select Dropdown",
+        "path": "select_dropdown",
+        "imgSrc": null,
         "tags": [],
-        "description": "The label acts as the placeholder. When focused on the input, it drifts upwards to the top border."
-      },
-      {
-        "heading": "Toggle switch with image background",
-        "path": "image_switch",
-        "imgSrc": "image_toggle.gif",
-        "tags": [{ "icon": "/js.svg", "data": "required" }],
-        "description": null
-      }
-    ]
-  },
-  {
-    "heading": "Gradient border",
-    "content": [
-      {
-        "heading": "Gradient border - Method 1",
-        "path": "gradient_border1",
-        "imgSrc": "gradient_border.png",
-        "tags": [],
-        "description": null
-      },
-      {
-        "heading": "Gradient border - Method 2",
-        "path": "gradient_border2",
-        "imgSrc": "gradient_border.png",
-        "tags": [],
-        "description": null
-      },
-      {
-        "heading": "Gradient border - Method 3",
-        "path": "gradient_border3",
-        "imgSrc": "gradient_border.gif",
-        "tags": [],
-        "description": null
-      }
-    ]
-  },
-  {
-    "heading": "Text Mask",
-    "content": [
-      {
-        "heading": "Without background image",
-        "path": "maskText1",
-        "imgSrc": "mask1.png",
-        "tags": [],
-        "description": null
-      },
-      {
-        "heading": "With frosted(blurred) background",
-        "path": "maskText2",
-        "imgSrc": "mask2.png",
-        "tags": [],
-        "description": null
-      }
-    ]
-  },
-  {
-    "heading": "Text transitions",
-    "content": [
-      {
-        "heading": "Bouncing Characters",
-        "path": "animText1",
-        "imgSrc": "animTxt1.gif",
-        "tags": [],
-        "description": null
-      },
-      {
-        "heading": "Pulsing Characters",
-        "path": "animText2",
-        "imgSrc": "animTxt2.gif",
-        "tags": [],
-        "description": null
+        "description": "A simple select dropdown element. The element consists of a simple button which on click opens up a list of options in a dropdown. The list closes if (1) the button is clicked again; (2) an option from list is selected; (3) area outside the dropdown is clicked."
       }
     ]
   }

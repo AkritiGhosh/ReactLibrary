@@ -1,12 +1,14 @@
+import Dropdown from "../topics/dropdown/BasicDropdown";
+
 const data = [
   {
-    heading: "Heading",
-    id: "1",
-    file: <></>,
+    heading: "Custom Select Dropdown",
+    id: "select_dropdown",
+    file: <Dropdown />,
     code: null,
     article: null,
-    backId: true,
-    nextId: true,
+    backId: null,
+    nextId: null,
   },
 ];
 
