@@ -6,8 +6,8 @@ export default {
   theme: {
     extend: {
       colors: {
-        app: { ...require("tailwindcss/colors").indigo },
-        focus: { ...require("tailwindcss/colors").sky },
+        app: { ...require("tailwindcss/colors").sky },
+        focus: { ...require("tailwindcss/colors").indigo },
       },
       keyframes: {
         rotate: {

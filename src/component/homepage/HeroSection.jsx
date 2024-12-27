@@ -1,4 +1,5 @@
 import React, { useMemo, useRef, useState } from "react";
+import Logo from "../logo/Logo";
 
 const HeroSection = ({ scrollRef }) => {
   const [mousePosition, setMousePosition] = useState(0);
@@ -56,11 +57,14 @@ const HeroSection = ({ scrollRef }) => {
                     : "0%"
                   : "-100%",
             }}
-            className="relative inline-block w-auto font-serif text-8xl leading-snug font-bold text-transparent bg-clip-text cursor-none bg-gradient-to-r from-focus-500 via-app-600 to-transparent from-0% via-50% to-50%"
+            className="relative inline-block w-auto font-serif text-8xl leading-snug font-bold text-transparent bg-clip-text cursor-none bg-gradient-to-r from-app-700 via-app-400 to-transparent from-0% via-50% to-50%"
           >
             {heading}
           </span>
         </span>
+      </div>
+      <div className="h-20 relative">
+        <Logo />
       </div>
       <p className="text-xl text-app-200 text-center">
         A compilation of dynamic and interactive UI elements, with effects and
@@ -69,7 +73,7 @@ const HeroSection = ({ scrollRef }) => {
       <button
         onClick={() => scrollRef?.current?.scrollIntoView()}
         type="button"
-        className="relative w-[190px] py-3 px-7 rounded-3xl font-mono uppercase text-focus-600 text-xl font-bold tracking-wider leading-normal shadow-[0_0_25px_2px] border border-focus-500 shadow-focus-600 hover:text-focus-300 hover:shadow-focus-300 group transition-all duration-500 overflow-hidden flex items-center hover:w-[220px]"
+        className="relative w-[190px] py-3 px-7 rounded-3xl font-mono uppercase text-focus-600 text-xl font-bold tracking-wider leading-normal shadow-[0_0_25px_2px] border border-focus-500 shadow-focus-600 hover:text-focus-300 hover:shadow-focus-300 group transition-all duration-300 overflow-hidden flex items-center hover:w-[220px]"
       >
         Scroll down
         <svg
@@ -77,8 +81,8 @@ const HeroSection = ({ scrollRef }) => {
           fill="none"
           viewBox="0 0 24 24"
           strokeWidth={1.5}
-          stroke="#7dd3fc"
-          className="size-6 ml-3 inline-block absolute -right-6 group-hover:right-5 delay-200"
+          stroke="currentColor"
+          className="size-6 ml-3 inline-block absolute -right-6 group-hover:right-5 "
         >
           <path
             strokeLinecap="round"
