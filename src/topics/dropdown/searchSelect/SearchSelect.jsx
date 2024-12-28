@@ -1,35 +1,60 @@
 import React, { useEffect, useState, useRef } from "react";
+import countries from "../../../lib/countries.json";
 
 const SearchSelect = () => {
-  const [buttonLabel, setButtonLabel] = useState("Dropdown open here");
+  const [inputValue, setInputValue] = useState("");
+  const [error, setError] = useState("");
+  const [loading, setLoading] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
+  const [dropdownItems, setDropdownItems] = useState([]);
   const [dropUp, setDropUp] = useState(false);
   const menuRef = useRef(null);
 
-  const toggleMenu = () => setMenuOpen((prev) => !prev);
-
   useEffect(() => {
-    // Add a click event listener to the document
     const handleDocumentClick = (e) => {
-      if (menuRef.current && !menuRef.current.contains(e.target)) {
-        // Clicked outside of the menu, close the menu
+      if (menuRef.current && !menuRef.current.contains(e.target))
         setMenuOpen(false);
-      }
-
-      if (menuRef.current && menuRef.current.contains(e.target)) {
-        // Clicked inside of the menu, check if the dropdown should be flipped
+      if (menuRef.current && menuRef.current.contains(e.target))
         setDropUp(
           window?.innerHeight - menuRef?.current?.getBoundingClientRect()?.y <=
             Math.min(400, dropdownItems?.length * 36 + 100)
         );
-      }
     };
-    // Attach the event listener when the component mounts
     document.addEventListener("click", handleDocumentClick);
-
-    // Cleanup the event listener when the component unmounts
     return () => document.removeEventListener("click", handleDocumentClick);
   }, []);
+
+  const handleChange = (e) => {
+    setError("");
+    const text = e.target.value;
+    setInputValue(e.target.value);
+    const textWithoutSpace = text.replace(/\s/g, "");
+    const checkEmpty = textWithoutSpace.length > 0;
+    const checkAlphabet = /^[a-zA-Z]+$/.test(textWithoutSpace);
+
+    if (checkEmpty && checkAlphabet) handleSearch();
+    else if (text.trim()?.length > 0)
+      setError("Invalid value, please try again.");
+  };
+
+  const handleSearch = async () => {
+    try {
+      setMenuOpen(true);
+      setLoading(true);
+      const filteredItems = countries.filter((country) =>
+        country?.name?.toLowerCase()?.includes(inputValue?.trim().toLowerCase())
+      );
+      console.log(inputValue, filteredItems);
+      setDropdownItems(filteredItems);
+      setTimeout(() => {
+        setLoading(false);
+      }, 1000);
+    } catch (error) {
+      setLoading(false);
+      setDropdownItems([]);
+      setError("Unable to fetch data");
+    }
+  };
 
   return (
     <div
@@ -42,7 +67,7 @@ const SearchSelect = () => {
             ? `border-focus-600 dark:border-focus-300 ${
                 dropUp ? "rounded-t-none" : "rounded-b-none"
               } `
-            : `border-focus-950 dark:border-focus-600 rounded-b-lg
+            : `border-focus-800 dark:border-focus-600 rounded-b-lg
         `
         }`}
       >
@@ -62,36 +87,52 @@ const SearchSelect = () => {
         </svg>
 
         <input
-          className="w-full h-full bg-transparent border-none ring-0 focus:ring-0 focus:outline-none"
+          className="w-full h-full bg-transparent border-none ring-0 focus:ring-0 focus:outline-none placeholder:text-base placeholder:text-focus-600/50 dark:placeholder:text-focus-400/40"
           name="search"
+          value={inputValue}
+          onChange={handleChange}
+          placeholder="Search company"
         />
       </div>
-      {menuOpen && dropdownItems?.length > 0 && (
-        <ul
-          className={`right-0 w-full z-[333] max-h-[250px] overflow-auto p-1 list-style-none bg-white dark:bg-black shadow-menuOptionShadow absolute origin-top-right border border-focus-600 dark:border-focus-300   border-opacity-40 dark:border-opacity-50 focus:outline-none ${
-            dropUp ? "bottom-12 top-auto rounded-t-lg" : "top-12 rounded-b-lg"
-          } `}
-        >
-          {dropdownItems?.map((item, key) => (
-            <li
-              key={key}
-              className={`w-full p-2 flex gap-2 items-center hover:bg-focus-100/20 rounded-lg cursor-pointer text-sm text-focus-900 dark:text-focus-100 to-focus-800 hover:font-medium mb-0.5 group ${
-                item == buttonLabel
-                  ? "font-medium bg-focus-100 dark:bg-focus-950"
-                  : "font-normal bg-transparent"
-              }`}
-              onClick={() => {
-                buttonLabel == item
-                  ? setButtonLabel("Dropdown open here")
-                  : setButtonLabel(item);
-                setMenuOpen(false);
-              }}
+      {error?.length > 0 && <p className="text-sm text-red-800">{error}</p>}
+      {menuOpen &&
+        (loading ? (
+          <div
+            style={{ backgroundSize: "200%" }}
+            className="w-full h-2 absolute -bottom-2 bg-gradient-to-r from-app-400 via-transparent to-app-700 bg-repeat-x  animate-loader rounded-b-lg"
+          />
+        ) : dropdownItems?.length > 0 ? (
+          <ul
+            className={`right-0 w-full z-[333] max-h-[250px] overflow-auto p-1 list-style-none bg-white dark:bg-black shadow-menuOptionShadow absolute origin-top-right border border-focus-600 dark:border-focus-300   border-opacity-40 dark:border-opacity-50 focus:outline-none ${
+              dropUp ? "bottom-12 top-auto rounded-t-lg" : "top-12 rounded-b-lg"
+            } `}
+          >
+            {dropdownItems?.map((item) => (
+              <li
+                key={item?.code}
+                className={`w-full p-2 flex gap-2 items-center hover:bg-focus-100/20 rounded-lg cursor-pointer text-sm text-focus-900 dark:text-focus-100 hover:font-medium mb-0.5 group font-normal bg-transparent `}
+                onClick={() => {
+                  setInputValue(item?.name);
+                  setMenuOpen(false);
+                }}
+              >
+                {item?.name}
+              </li>
+            ))}
+          </ul>
+        ) : (
+          inputValue?.trim() && (
+            <div
+              className={`right-0 w-full z-[333] p-1 bg-white dark:bg-black shadow-menuOptionShadow absolute origin-top-right border border-focus-600 dark:border-focus-300 text-center  border-opacity-40 dark:border-opacity-50 focus:outline-none text-focus-900 dark:text-focus-100 ${
+                dropUp
+                  ? "bottom-12 top-auto rounded-t-lg"
+                  : "top-12 rounded-b-lg"
+              } `}
             >
-              {item}
-            </li>
-          ))}
-        </ul>
-      )}
+              No results found
+            </div>
+          )
+        ))}
     </div>
   );
 };
