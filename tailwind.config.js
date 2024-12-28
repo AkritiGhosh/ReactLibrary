@@ -10,9 +10,9 @@ export default {
         focus: { ...require("tailwindcss/colors").indigo },
       },
       keyframes: {
-        rotate: {
-          "0%": { transform: "rotate(0)" },
-          "100%": { transform: "rotate(360deg)" },
+        loader: {
+          "0%, 100%": { backgroundPosition: "0%" },
+          "50%": { backgroundPosition: "100%" },
         },
         bounceChar: {
           "0%": { transform: "translateY(0)" },
@@ -28,7 +28,7 @@ export default {
         },
       },
       animation: {
-        rotate: "rotate 10s linear infinite",
+        loader: "loader 2s linear infinite",
         bounceChar: "bounceChar 1s ease infinite alternate",
         charPulse: "charPulse 1.25s ease infinite alternate",
       },
