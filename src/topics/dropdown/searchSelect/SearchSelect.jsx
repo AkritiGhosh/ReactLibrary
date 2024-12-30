@@ -1,4 +1,10 @@
-import React, { useEffect, useState, useRef } from "react";
+import React, {
+  useEffect,
+  useState,
+  useRef,
+  useMemo,
+  useCallback,
+} from "react";
 import countries from "../../../lib/countries.json";
 
 const SearchSelect = () => {
@@ -26,27 +32,32 @@ const SearchSelect = () => {
 
   const handleChange = (e) => {
     setError("");
+    setMenuOpen(false);
     const text = e.target.value;
     setInputValue(e.target.value);
-    const textWithoutSpace = text.replace(/\s/g, "");
-    const checkEmpty = textWithoutSpace.length > 0;
-    const checkAlphabet = /^[a-zA-Z]+$/.test(textWithoutSpace);
-
-    if (checkEmpty && checkAlphabet) handleSearch();
-    else if (text.trim()?.length > 0)
-      setError("Invalid value, please try again.");
+    handleSearch(text);
   };
 
-  const handleSearch = async () => {
+  const handleSearch = async (text) => {
     try {
+      const textWithoutSpace = text.replace(/\s/g, "");
+      const checkNotEmpty = textWithoutSpace.length > 0;
+      const checkAllAlphabet = /^[a-zA-Z]+$/.test(textWithoutSpace);
+      if (!checkNotEmpty) {
+        setError("Please enter a country name to search");
+        return;
+      }
+      if (!checkAllAlphabet) {
+        setError("Please enter proper alphabetic input to search");
+        return;
+      }
       setMenuOpen(true);
       setLoading(true);
-      const filteredItems = countries.filter((country) =>
-        country?.name?.toLowerCase()?.includes(inputValue?.trim().toLowerCase())
-      );
-      console.log(inputValue, filteredItems);
-      setDropdownItems(filteredItems);
       setTimeout(() => {
+        const filteredItems = countries.filter((country) =>
+          country?.name?.toLowerCase()?.includes(text?.trim().toLowerCase())
+        );
+        setDropdownItems(filteredItems);
         setLoading(false);
       }, 1000);
     } catch (error) {
@@ -94,7 +105,7 @@ const SearchSelect = () => {
           placeholder="Search company"
         />
       </div>
-      {error?.length > 0 && <p className="text-sm text-red-800">{error}</p>}
+      {error?.length > 0 && <p className="text-sm text-red-800 mt-2">{error}</p>}
       {menuOpen &&
         (loading ? (
           <div
@@ -123,7 +134,7 @@ const SearchSelect = () => {
         ) : (
           inputValue?.trim() && (
             <div
-              className={`right-0 w-full z-[333] p-1 bg-white dark:bg-black shadow-menuOptionShadow absolute origin-top-right border border-focus-600 dark:border-focus-300 text-center  border-opacity-40 dark:border-opacity-50 focus:outline-none text-focus-900 dark:text-focus-100 ${
+              className={`right-0 w-full z-[333] p-5  bg-white dark:bg-black shadow-menuOptionShadow absolute origin-top-right border border-focus-600 dark:border-focus-300 text-center  border-opacity-40 dark:border-opacity-50 focus:outline-none text-focus-900 dark:text-focus-100 ${
                 dropUp
                   ? "bottom-12 top-auto rounded-t-lg"
                   : "top-12 rounded-b-lg"
