@@ -1,7 +1,7 @@
 import React, { useEffect, useState, useRef } from "react";
 import countries from "../../../lib/countries.json";
-import SearchInput from "./SearchInput";
 import SearchDropdown from "./SearchDropdown";
+import SearchInput from "../SearchInput";
 
 const SearchSelect = () => {
   const [inputValue, setInputValue] = useState("");
