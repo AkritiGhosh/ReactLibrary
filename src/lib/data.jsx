@@ -1,4 +1,5 @@
 import Dropdown from "../topics/dropdown/BasicDropdown";
+import SearchAddNewSelect from "../topics/dropdown/searchAddNewSelect/SearchSelect";
 import SearchSelect from "../topics/dropdown/searchSelect/SearchSelect";
 
 const data = [
@@ -18,6 +19,16 @@ const data = [
     code: null,
     article: null,
     backId: "select_dropdown",
+    nextId: "search_add_new",
+  },
+
+  {
+    heading: "Search Select Dropdown",
+    id: "search_add_new",
+    file: <SearchAddNewSelect />,
+    code: null,
+    article: null,
+    backId: "search_select",
     nextId: null,
   },
 ];
