@@ -1,7 +1,7 @@
 import React, { useEffect, useState, useRef } from "react";
 import countries from "../../../lib/countries.json";
 import SearchInput from "../SearchInput";
-import SearchDropdown from "./SearchDropdown";
+import SearchDropdown from "../SearchDropdown";
 
 const SearchAddNewSelect = () => {
   const [inputValue, setInputValue] = useState("");
@@ -63,6 +63,28 @@ const SearchAddNewSelect = () => {
     }
   };
 
+  const handleAddNew = (e) => {
+     const textWithoutSpace = text.replace(/\s/g, "");
+     const checkNotEmpty = textWithoutSpace.length > 0;
+     const checkAllAlphabet = /^[a-zA-Z]+$/.test(textWithoutSpace);
+     if (text?.length == 0) return;
+     if (!checkNotEmpty && text?.length > 0) {
+       setError("Please enter a country name to search");
+       return;
+     }
+     if (!checkAllAlphabet) {
+       setError("Please enter proper alphabetic input to search");
+       return;
+     }
+    setMenuOpen(true);
+     setLoading(true);
+     setTimeout(() => {
+     
+       setDropdownItems((prev) => prev.append);
+       setLoading(false);
+     }, 1000);
+  }
+
   return (
     <div className="w-2/5 min-w-64 flex flex-col gap-2 items-center">
       <label
@@ -107,6 +129,13 @@ const SearchAddNewSelect = () => {
                   {item?.name}
                 </li>
               ))}
+              <li
+                key={item?.code}
+                className={`w-full p-2 flex gap-2 items-center hover:bg-focus-100/20 rounded-lg cursor-pointer text-sm text-focus-900 dark:text-focus-100 hover:font-medium mb-0.5 group font-normal bg-transparent `}
+                onClick={handleAddNew}
+              >
+               Add new address - {inputValue}
+              </li>
             </SearchDropdown>
           ) : (
             <SearchDropdown
