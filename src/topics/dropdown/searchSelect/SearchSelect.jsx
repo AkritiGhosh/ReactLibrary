@@ -1,6 +1,6 @@
 import React, { useEffect, useState, useRef } from "react";
 import countries from "../../../lib/countries.json";
-import SearchDropdown from "./SearchDropdown";
+import SearchDropdown from "../SearchDropdown";
 import SearchInput from "../SearchInput";
 
 const SearchSelect = () => {

@@ -8,6 +8,7 @@ const SearchAddNewSelect = () => {
   const [error, setError] = useState("");
   const [loading, setLoading] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
+  const [allCountries, setAllCountries] = useState(countries);
   const [dropdownItems, setDropdownItems] = useState([]);
   const [dropUp, setDropUp] = useState(false);
   const menuRef = useRef(null);
@@ -50,7 +51,7 @@ const SearchAddNewSelect = () => {
       setMenuOpen(true);
       setLoading(true);
       setTimeout(() => {
-        const filteredItems = countries.filter((country) =>
+        const filteredItems = allCountries.filter((country) =>
           country?.name?.toLowerCase()?.includes(text?.trim().toLowerCase())
         );
         setDropdownItems(filteredItems);
@@ -63,27 +64,32 @@ const SearchAddNewSelect = () => {
     }
   };
 
-  const handleAddNew = (e) => {
-     const textWithoutSpace = text.replace(/\s/g, "");
-     const checkNotEmpty = textWithoutSpace.length > 0;
-     const checkAllAlphabet = /^[a-zA-Z]+$/.test(textWithoutSpace);
-     if (text?.length == 0) return;
-     if (!checkNotEmpty && text?.length > 0) {
-       setError("Please enter a country name to search");
-       return;
-     }
-     if (!checkAllAlphabet) {
-       setError("Please enter proper alphabetic input to search");
-       return;
-     }
+  const handleAddNew = () => {
+    const text = inputValue;
+    const textWithoutSpace = text.replace(/\s/g, "");
+    const checkNotEmpty = textWithoutSpace.length > 0;
+    const checkAllAlphabet = /^[a-zA-Z]+$/.test(textWithoutSpace);
+    if (text?.length == 0) return;
+    if (!checkNotEmpty && text?.length > 0) {
+      setError("Please enter a country name to search");
+      return;
+    }
+    if (!checkAllAlphabet) {
+      setError("Please enter proper alphabetic input to search");
+      return;
+    }
     setMenuOpen(true);
-     setLoading(true);
-     setTimeout(() => {
-     
-       setDropdownItems((prev) => prev.append);
-       setLoading(false);
-     }, 1000);
-  }
+    setLoading(true);
+  
+
+    setTimeout(() => {
+      setAllCountries((prev) => [
+        ...prev,
+        { name: text, code: textWithoutSpace.toUpperCase() },
+      ]);
+      setLoading(false);
+    }, 1000);
+  };
 
   return (
     <div className="w-2/5 min-w-64 flex flex-col gap-2 items-center">
@@ -130,11 +136,10 @@ const SearchAddNewSelect = () => {
                 </li>
               ))}
               <li
-                key={item?.code}
-                className={`w-full p-2 flex gap-2 items-center hover:bg-focus-100/20 rounded-lg cursor-pointer text-sm text-focus-900 dark:text-focus-100 hover:font-medium mb-0.5 group font-normal bg-transparent `}
+                className={`w-full p-2 flex gap-2 items-center hover:bg-focus-100/20 rounded-lg cursor-pointer text-sm text-focus-900 dark:text-focus-100 font-medium mb-0.5 group bg-transparent `}
                 onClick={handleAddNew}
               >
-               Add new address - {inputValue}
+                Add new address - {inputValue}
               </li>
             </SearchDropdown>
           ) : (
@@ -142,7 +147,12 @@ const SearchAddNewSelect = () => {
               as:Tag="div"
               className={`p-5 text-center text-focus-900 dark:text-focus-100`}
             >
-              No results found
+              <button
+                onClick={handleAddNew}
+                className="w-full h-full font-medium"
+              >
+                Add new address - {inputValue}
+              </button>
             </SearchDropdown>
           ))}
       </div>
