@@ -9,12 +9,12 @@ const SearchInput = ({
 }) => {
   return (
     <div
-      className={`w-full h-12 px-2 rounded-lg text-base leading-12 font-semibold text-app-900 dark:text-app-100 group border-2 bg-white dark:bg-black group flex flex-row gap-4 items-center justify-between group ${
+      className={`w-full h-12 px-2 rounded-lg text-base leading-12 font-semibold text-app-900 dark:text-app-100 group border-2 bg-white dark:bg-black group flex flex-row gap-4 items-center justify-between group has-[:focus]:border-focus-600 has-[:focus]:dark:border-focus-500 ${
         menuOpen
-          ? `border-app-600 dark:border-app-300 has-[:focus]:border-focus-600 has-[:focus]:dark:border-focus-300 ${
+          ? `border-app-600 dark:border-app-300  ${
               dropUp ? "rounded-t-none" : "rounded-b-none"
             } `
-          : `border-app-800 dark:border-app-600 rounded-b-lg  has-[:focus]:border-focus-600 has-[:focus]:dark:border-focus-300
+          : `border-app-800 dark:border-app-600 rounded-b-lg
         `
       }`}
     >
