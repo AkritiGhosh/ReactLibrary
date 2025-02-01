@@ -8,6 +8,19 @@
         "imgSrc": "select-dropdown.png",
         "tags": [],
         "description": "A simple select dropdown element. The element consists of a simple button which on click opens up a list of options in a dropdown. The list closes if (1) the button is clicked again; (2) an option from list is selected; (3) area outside the dropdown is clicked."
+      },
+      {
+        "heading": "Search Input with Dropdown",
+        "path": "search_select",
+        "imgSrc": "",
+        "tags": [],
+        "description": ""
+      },{
+        "heading": "Search Input with Dropdown + Add new to list",
+        "path": "search_add_new",
+        "imgSrc": "",
+        "tags": [],
+        "description": ""
       }
     ]
   }
