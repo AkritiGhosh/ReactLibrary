@@ -1,6 +1,7 @@
 import Dropdown from "../topics/dropdown/BasicDropdown";
 import SearchAddNewSelect from "../topics/dropdown/searchAddNewSelect/SearchSelect";
 import SearchSelect from "../topics/dropdown/searchSelect/SearchSelect";
+import SimpleTabs from "../topics/tabs/SimpleTabs";
 
 const data = [
   {
@@ -29,6 +30,15 @@ const data = [
     code: null,
     article: null,
     backId: "search_select",
+    nextId: "tabs",
+  },
+  {
+    heading: "Tabs",
+    id: "tabs",
+    file: <SimpleTabs />,
+    code: null,
+    article: null,
+    backId: "search_add_new",
     nextId: null,
   },
 ];
