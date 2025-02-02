@@ -39,13 +39,15 @@ jobs:
         run: npm install
       - name: Build
         run: npm run build
+      - name: Verify Build Output
+        run: ls -l ./dist  # Debugging step to ensure build output exists
       - name: Setup Pages
         uses: actions/configure-pages@v3
       - name: Upload artifact
-        uses: actions/upload-pages-artifact@v2
+        uses: actions/upload-pages-artifact@v3
         with:
-          # Upload dist repository
           path: './dist'
+          name: github-pages  # Required in v3
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v2
